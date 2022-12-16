@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Task from './Task';
+import Task from './Task.js';
 import './TaskList.css';
 
-const TaskList = ({ tasks }) => {
-  const getTaskListJSX = (tasks) => {
-    return tasks.map((task) => {
-      return (
-        <Task
-          key={task.id}
-          id={task.id}
-          title={task.title}
-          isComplete={task.isComplete}
-        />
-      );
-    });
-  };
-  return <ul className="tasks__list no-bullet">{getTaskListJSX(tasks)}</ul>;
+const TaskList = (props) => {
+  return (
+    <ul className="TaskList">
+      {props.tasks.map((task) => {
+        return (
+          <Task
+            key={task.id}
+            id={task.id}
+            title={task.title}
+            isComplete={task.isComplete}
+            onUpdate={props.onUpdateTasks}
+          />
+        );
+      })}
+    </ul>
+  );
 };
 
 TaskList.propTypes = {
@@ -26,7 +28,8 @@ TaskList.propTypes = {
       title: PropTypes.string.isRequired,
       isComplete: PropTypes.bool.isRequired,
     })
-  ).isRequired,
+  ),
+  onUpdateTasks: PropTypes.func.isRequired,
 };
 
 export default TaskList;
