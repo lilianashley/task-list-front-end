@@ -3,7 +3,6 @@ import TaskList from './components/TaskList.js';
 import './App.css';
 import { useState } from 'react';
 
-
 const TASKS = [
   {
     id: 1,
@@ -48,24 +47,24 @@ function App() {
 export default App;
 
 /*toggle #1* #1 toggle complete* -lily*/
-const ToDo = ({todo}) => {
-  return (
-      <div className={todo.complete ? "strike" : ""}>
-          {todo.task}
-      </div>
-  );
-};
-/* added this L*/
-const handleToggle = (id) => {
-  let mapped = TaskList.map(task => {
-    return task.id == id ? { ...task, complete: !task.complete } : { ...task};
-  });
-  TaskList(mapped);
-}
+// const ToDo = ({todo}) => {
+//   return (
+//       <div className={todo.complete ? "strike" : ""}>
+//           {todo.task}
+//       </div>
+//   );
+// };
+// /* added this L*/
+// const handleToggle = (id) => {
+//   let mapped = TaskList.map(task => {
+//     return task.id == id ? { ...task, complete: !task.complete } : { ...task};
+//   });
+//   TaskList(mapped);
+// }
 
-const handleFilter = () => {
-  let filtered = TaskList.filter(task => {
-    return !task.complete;
-  });
-  TaskList(filtered);
-}
+// const handleFilter = () => {
+//   let filtered = TaskList.filter(task => {
+//     return !task.complete;
+//   });
+//   TaskList(filtered);
+// }
